@@ -33,7 +33,6 @@ function main(){
 
 //question-view
 function quizView(quiz){
-    console.log("quizview");
     
     let home = document.querySelector("#home");;
     home.innerHTML = "";
@@ -63,7 +62,6 @@ function quizView(quiz){
     let answerButton, text, i;
 	for (i=0; i<currentQuestion.alternatives.length; i++){
         text = currentQuestion.alternatives[i];
-        console.log("text");
 		answerButton = document.createElement("button");
 		answerButton.setAttribute("class", "answerButton");
 		answerButton.setAttribute("value", text);
@@ -78,11 +76,9 @@ function quizView(quiz){
 	for (let i=0; i<answerButtons.length; i++){
 		let validate = "";
 		answerButtons[i].addEventListener("click", function(){
-            console.log(this.value);
             if(this.value === currentQuestion.correct_answer){
                 validate = "Correct!";
                 score++;
-                console.log(score);
             }else{
                 validate = "Incorrect!";
             }
@@ -120,7 +116,6 @@ function quizView(quiz){
         header.innerHTML = "Your Result:";
         let result = document.createElement("p");
         result.innerHTML = score + " out of " + amountOfQuestions;
-        console.log("you got " + score + " of " + amountOfQuestions + "questions right!");
         home.appendChild(header);
         home.appendChild(result);
         home.appendChild(homeButton);
@@ -141,7 +136,6 @@ function setup(quiz){
 
 function loadQuestion(quiz){
 	if (quiz.count < quiz.length){
-        console.log("load");
         quizView(quiz)
 	}
 	else{
@@ -168,7 +162,6 @@ xhttp.onreadystatechange = function() {
         if (xhttp.status === 200){
             console.log("200");
 			let quiz = JSON.parse(this.responseText).results;
-            console.log("ajax");
             setup(quiz);
 		}
 		if (xhttp.status === 404){
