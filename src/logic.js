@@ -1,5 +1,7 @@
 //========GLOBAL=VARS=========================================
 const xhttp = new XMLHttpRequest();
+let score = 0;
+let amountOfQuestions = 10;
 //========MAIN================================================
 window.onload = main();
 
