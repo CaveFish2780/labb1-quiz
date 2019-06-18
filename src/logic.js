@@ -31,18 +31,24 @@ function main(){
 //question-view
 function quizView(quiz){
     console.log("quizview");
-    let currentQuestion = quiz.question();
+    
     let home = document.querySelector("#home");;
     home.innerHTML = "";
     
-
     let div = document.createElement("div");
     div.setAttribute("id", "quiz");
+
+    let currentQuestion = quiz.question();
+    let answers = [...currentQuestion.incorrect_answers];
+    answers.push(currentQuestion.correct_answer);
+    answers.sort(() => Math.random() - 0.5);
+    currentQuestion.alternatives = answers;
     
     let questionTitle = document.createElement("p");
     questionTitle.setAttribute("id", "questionTitle");
     questionTitle.innerHTML = "Question " + quiz.count + ".";
     div.appendChild(questionTitle);
+
 
     let questionText = document.createElement("p");
     questionText.innerHTML = currentQuestion.question;
