@@ -56,9 +56,8 @@ function quizView(quiz){
     let alternatives = document.createElement("div");
     alternatives.setAttribute("id", "alternatives");
     
+    //Buttons for alternatives
     let answerButton, text, i;
-
-    console.log(currentQuestion.alternatives);
 	for (i=0; i<currentQuestion.alternatives.length; i++){
         text = currentQuestion.alternatives[i];
         console.log("text");
@@ -72,24 +71,41 @@ function quizView(quiz){
 
     let answerButtons = document.getElementsByClassName("answerButton");
 
+    //Validation
 	for (let i=0; i<answerButtons.length; i++){
-		
+		let validate = "";
 		answerButtons[i].addEventListener("click", function(){
             console.log(this.value);
             if(this.value === currentQuestion.correct_answer){
-                console.log("Correct!")
+                validate = "Correct!";
                 score++;
                 console.log(score);
             }else{
-                console.log("Incorrect!")
+                validate = "Incorrect!";
             }
-			loadQuestion(quiz);
+
+            home.innerHTML = "";
+
+            let validation = document.createElement("p");
+            validation.innerHTML = validate;
+
+            let nextButton = document.createElement("button");
+            nextButton.setAttribute("id", "startButton");
+            nextButton.innerHTML = "Next";
+            nextButton.addEventListener("click", () => {
+                loadQuestion(quiz);
+            })
+            home.appendChild(validation);
+            home.appendChild(nextButton);   
 		});
 	}
-    }
+}
     
     //results-view
-    
+    function resultsView(){
+
+        console.log("you got " + score + " of " + amountOfQuestions + "questions right!");
+    }
 //========SETUP-FUNCTIONS======================================
 
 function setup(quiz){
@@ -110,8 +126,8 @@ function loadQuestion(quiz){
         quizView(quiz)
 	}
 	else{
-		console.log("game over")
-	}
+        resultsView();
+    }
 }
 
 //========API==================================================
