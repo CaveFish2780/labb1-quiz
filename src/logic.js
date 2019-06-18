@@ -1,14 +1,16 @@
+//========GLOBAL=VARS=========================================
 const xhttp = new XMLHttpRequest();
-
-//========INIT=====================================================
+//========MAIN================================================
 window.onload = main();
 
+//========VIEWS==============================================
+//main-view
 function main(){
     home.innerHTML = "";
     //start div
     let div = document.createElement("div");
     div.setAttribute("id", "start");
-    div.innerHTML = "";    
+    div.innerHTML = "";
     //startbutton
     let startButton = document.createElement("button");
     startButton.setAttribute("id", "startButton");
@@ -16,11 +18,15 @@ function main(){
     startButton.addEventListener("click", () => {
         console.log("log");
         ajaxRequest(formatUrl(10));
-    })   
+    })
     div.appendChild(startButton);
     
     home.appendChild(div);
 }
+
+//question-view
+
+//results-view
 
 
 //========API==================================================
