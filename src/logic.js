@@ -18,8 +18,7 @@ function main(){
     startButton.setAttribute("id", "startButton");
     startButton.innerHTML = "Start";
     startButton.addEventListener("click", () => {
-        console.log("log");
-        ajaxRequest(formatUrl(10));
+        ajaxRequest(formatUrl(amountOfQuestions));
     })
     div.appendChild(startButton);
     
