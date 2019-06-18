@@ -1,5 +1,6 @@
 const xhttp = new XMLHttpRequest();
 
+//========INIT=====================================================
 window.onload = main();
 
 function main(){
@@ -19,3 +20,13 @@ function main(){
     
     home.appendChild(div);
 }
+
+
+//========API==================================================
+
+//URL
+
+//REQUEST
+
+//GET
+
