@@ -15,6 +15,7 @@ function main(){
     startButton.innerHTML = "Start";
     startButton.addEventListener("click", () => {
         console.log("log");
+        ajaxRequest(formatUrl(10));
     })   
     div.appendChild(startButton);
     
