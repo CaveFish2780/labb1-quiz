@@ -34,5 +34,21 @@ function ajaxRequest(url){
     xhttp.open("get", url, true);
     xhttp.send();
 }
-//GET
+//GET JSON OBJECT
+xhttp.onreadystatechange = function() {
+    console.log(xhttp.readyState);
+	if (xhttp.readyState === 4){
+        if (xhttp.status === 200){
+            console.log("200");
+			let quiz = JSON.parse(this.responseText).results;
+            console.log(quiz);
+		}
+		if (xhttp.status === 404){
+            alert("404 NOT FOUND");
+        }
+        if (xhttp.status === 500){
+            alert("500 INTERNAL SERVER ERROR");
+        }
+	}
+};
 
