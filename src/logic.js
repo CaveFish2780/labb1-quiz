@@ -8,11 +8,14 @@ window.onload = main();
 //========VIEWS==============================================
 //main-view
 function main(){
+    
     home.innerHTML = "";
+    
     //start div
     let div = document.createElement("div");
     div.setAttribute("id", "start");
     div.innerHTML = "";
+    
     //startbutton
     let startButton = document.createElement("button");
     startButton.setAttribute("id", "startButton");
@@ -20,8 +23,8 @@ function main(){
     startButton.addEventListener("click", () => {
         ajaxRequest(formatUrl(amountOfQuestions));
     })
-    div.appendChild(startButton);
     
+    div.appendChild(startButton);
     home.appendChild(div);
 }
 
@@ -29,6 +32,28 @@ function main(){
 
 //results-view
 
+//========SETUP-FUNCTIONS======================================
+
+function setup(quiz){
+    
+    quiz.count = 0;
+
+	quiz.question = function(){
+		let question = quiz[this.count];
+		this.count++;
+		return question;
+    };
+    loadQuestion(quiz);
+}
+
+function loadQuestion(quiz){
+	if (quiz.count < quiz.length){
+        console.log("load");
+	}
+	else{
+		console.log("game over")
+	}
+}
 
 //========API==================================================
 
@@ -49,7 +74,7 @@ xhttp.onreadystatechange = function() {
         if (xhttp.status === 200){
             console.log("200");
 			let quiz = JSON.parse(this.responseText).results;
-            console.log(quiz);
+            console.log("ajax");
 		}
 		if (xhttp.status === 404){
             alert("404 NOT FOUND");
