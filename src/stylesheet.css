@@ -1,0 +1,39 @@
+#startButton{
+    margin-top: 5%;
+    font-size: 200%;
+    width: 100%;
+}
+#homeButton{
+    margin-top: 5%;
+    font-size: 200%;
+    width: 100%;
+}
+#nextButton{
+    margin-top: 5%;
+    font-size: 100%;
+    width: 75%;
+}
+button {
+    font-size: 75%;
+    margin: 0.5%;
+}
+@media(min-width: 800px){
+    #home{
+        font-size: 3em;
+        text-align: center;
+        }
+}
+@media(max-width: 800px){
+    #home{
+        font-size: 2em;
+        text-align: center;
+        }
+}
+
+@media(max-width: 400px){
+    #home{
+        font-size: 1em;
+        text-align: center;
+        }
+
+}
