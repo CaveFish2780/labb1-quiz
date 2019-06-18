@@ -23,7 +23,6 @@ function main(){
     startButton.addEventListener("click", () => {
         ajaxRequest(formatUrl(amountOfQuestions));
     })
-    
     div.appendChild(startButton);
     home.appendChild(div);
 }
@@ -103,8 +102,15 @@ function quizView(quiz){
     
     //results-view
     function resultsView(){
-
+        let home = document.querySelector("#home");
+        home.innerHTML = ""
+        let header = document.createElement("h1");
+        header.innerHTML = "Your Result:";
+        let result = document.createElement("p");
+        result.innerHTML = score + " out of " + amountOfQuestions;
         console.log("you got " + score + " of " + amountOfQuestions + "questions right!");
+        home.appendChild(header)
+        home.appendChild(result);
     }
 //========SETUP-FUNCTIONS======================================
 
