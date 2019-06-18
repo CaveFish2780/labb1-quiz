@@ -46,17 +46,33 @@ function quizView(quiz){
     
     let questionTitle = document.createElement("p");
     questionTitle.setAttribute("id", "questionTitle");
-    questionTitle.innerHTML = "Question " + quiz.count + ".";
+    questionTitle.innerHTML = "Question " + quiz.count + " of " +quiz.length;
     div.appendChild(questionTitle);
-
 
     let questionText = document.createElement("p");
     questionText.innerHTML = currentQuestion.question;
     div.appendChild(questionText);
     home.appendChild(div);
-    }
-//results-view
+    let alternatives = document.createElement("div");
+    alternatives.setAttribute("id", "alternatives");
+    
+    let answerButton, text, i;
 
+    console.log(currentQuestion.alternatives);
+	for (i=0; i<currentQuestion.alternatives.length; i++){
+        text = currentQuestion.alternatives[i];
+        console.log("text");
+		answerButton = document.createElement("button");
+		answerButton.setAttribute("class", "answerButton");
+		answerButton.setAttribute("value", text);
+		answerButton.innerHTML = text;
+		alternatives.appendChild(answerButton);
+	}
+    home.appendChild(alternatives);
+    }
+    
+    //results-view
+    
 //========SETUP-FUNCTIONS======================================
 
 function setup(quiz){
