@@ -29,7 +29,26 @@ function main(){
 }
 
 //question-view
+function quizView(quiz){
+    console.log("quizview");
+    let currentQuestion = quiz.question();
+    let home = document.querySelector("#home");;
+    home.innerHTML = "";
+    
 
+    let div = document.createElement("div");
+    div.setAttribute("id", "quiz");
+    
+    let questionTitle = document.createElement("p");
+    questionTitle.setAttribute("id", "questionTitle");
+    questionTitle.innerHTML = "Question " + quiz.count + ".";
+    div.appendChild(questionTitle);
+
+    let questionText = document.createElement("p");
+    questionText.innerHTML = currentQuestion.question;
+    div.appendChild(questionText);
+    home.appendChild(div);
+    }
 //results-view
 
 //========SETUP-FUNCTIONS======================================
@@ -49,6 +68,7 @@ function setup(quiz){
 function loadQuestion(quiz){
 	if (quiz.count < quiz.length){
         console.log("load");
+        quizView(quiz)
 	}
 	else{
 		console.log("game over")
@@ -75,6 +95,7 @@ xhttp.onreadystatechange = function() {
             console.log("200");
 			let quiz = JSON.parse(this.responseText).results;
             console.log("ajax");
+            setup(quiz);
 		}
 		if (xhttp.status === 404){
             alert("404 NOT FOUND");
