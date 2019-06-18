@@ -89,7 +89,7 @@ function quizView(quiz){
             validation.innerHTML = validate;
 
             let nextButton = document.createElement("button");
-            nextButton.setAttribute("id", "startButton");
+            nextButton.setAttribute("id", "nextButton");
             nextButton.innerHTML = "Next";
             nextButton.addEventListener("click", () => {
                 loadQuestion(quiz);
@@ -102,6 +102,14 @@ function quizView(quiz){
     
     //results-view
     function resultsView(){
+
+        let homeButton = document.createElement("button");
+        homeButton.setAttribute("id", "homeButton");
+        homeButton.innerHTML = "Home";
+        homeButton.addEventListener("click", () => {
+            main();
+        })
+
         let home = document.querySelector("#home");
         home.innerHTML = ""
         let header = document.createElement("h1");
@@ -109,8 +117,9 @@ function quizView(quiz){
         let result = document.createElement("p");
         result.innerHTML = score + " out of " + amountOfQuestions;
         console.log("you got " + score + " of " + amountOfQuestions + "questions right!");
-        home.appendChild(header)
+        home.appendChild(header);
         home.appendChild(result);
+        home.appendChild(homeButton);
     }
 //========SETUP-FUNCTIONS======================================
 
