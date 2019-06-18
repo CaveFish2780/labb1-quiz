@@ -24,9 +24,15 @@ function main(){
 
 //========API==================================================
 
-//URL
-
+//URL-for-requests 
+//adds prefered amount of questions to url
+function formatUrl(amount){
+    return "https://opentdb.com/api.php?amount=" + amount;
+}
 //REQUEST
-
+function ajaxRequest(url){
+    xhttp.open("get", url, true);
+    xhttp.send();
+}
 //GET
 
