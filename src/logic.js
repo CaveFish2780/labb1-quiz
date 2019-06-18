@@ -16,6 +16,9 @@ function main(){
     div.setAttribute("id", "start");
     div.innerHTML = "";
     
+    let header = document.createElement("h1");
+    header.innerHTML = "Press Button to Begin"
+
     //startbutton
     let startButton = document.createElement("button");
     startButton.setAttribute("id", "startButton");
@@ -23,6 +26,7 @@ function main(){
     startButton.addEventListener("click", () => {
         ajaxRequest(formatUrl(amountOfQuestions));
     })
+    div.appendChild(header);
     div.appendChild(startButton);
     home.appendChild(div);
 }
