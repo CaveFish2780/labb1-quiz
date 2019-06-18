@@ -69,6 +69,23 @@ function quizView(quiz){
 		alternatives.appendChild(answerButton);
 	}
     home.appendChild(alternatives);
+
+    let answerButtons = document.getElementsByClassName("answerButton");
+
+	for (let i=0; i<answerButtons.length; i++){
+		
+		answerButtons[i].addEventListener("click", function(){
+            console.log(this.value);
+            if(this.value === currentQuestion.correct_answer){
+                console.log("Correct!")
+                score++;
+                console.log(score);
+            }else{
+                console.log("Incorrect!")
+            }
+			loadQuestion(quiz);
+		});
+	}
     }
     
     //results-view
